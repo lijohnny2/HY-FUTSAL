@@ -1,0 +1,70 @@
+rules_version = '2';
+// 한양대 풋살동아리 앱 보안 규칙
+// - 가입(로그인)만 한 사람은 자기 프로필·승인 상태만 볼 수 있어요.
+// - 동아리장/운영진이 승인한 멤버만 동아리 데이터를 보고 쓸 수 있어요.
+// - 평가·투표는 각자 자기 문서만 쓸 수 있어요.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function me() { return request.auth.uid; }
+    function adminsPath() { return /databases/$(database)/documents/config/admins; }
+    function hasAdmins() { return exists(adminsPath()); }
+    function isOwner() { return signedIn() && hasAdmins() && get(adminsPath()).data.owner == me(); }
+    function isStaff() {
+      return signedIn() && hasAdmins()
+        && (get(adminsPath()).data.owner == me() || me() in get(adminsPath()).data.staff);
+    }
+    function isMember() {
+      let p = /databases/$(database)/documents/roster/$(me());
+      return signedIn() && exists(p) && get(p).data.status == 'approved';
+    }
+    function canUse() { return isStaff() || isMember(); }
+    function validProfile() {
+      let d = request.resource.data;
+      return d.name is string && d.name.size() > 0 && d.name.size() <= 20
+        && d.year is string && d.year.size() <= 2
+        && d.dept is string && d.dept.size() <= 20
+        && d.pos in ['GK', 'FIXO', 'ALA', 'PIVO']
+        && (!('intro' in d) || (d.intro is string && d.intro.size() <= 60));
+    }
+
+    // 동아리장·운영진 목록. 처음 한 번만, 만드는 사람이 스스로 동아리장이 될 수 있어요.
+    match /config/admins {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.owner == me() && request.resource.data.staff == [];
+      allow update: if isOwner() && request.resource.data.owner == resource.data.owner;
+      allow delete: if false;
+    }
+    match /config/club {
+      allow read: if canUse();
+      allow write: if isOwner();
+    }
+    match /profiles/{uid} {
+      allow read: if (signedIn() && uid == me()) || canUse();
+      allow create, update: if (signedIn() && uid == me() && validProfile()) || isOwner();
+      allow delete: if (signedIn() && uid == me()) || isOwner();
+    }
+    match /roster/{uid} {
+      allow read: if (signedIn() && uid == me()) || canUse();
+      allow write: if isStaff();
+    }
+    match /members/{id} {
+      allow read: if canUse();
+      allow write: if isStaff();
+    }
+    match /ratings/{uid} {
+      allow read: if canUse();
+      allow write: if signedIn() && uid == me() && canUse();
+    }
+    match /votes/{uid} {
+      allow read: if canUse();
+      allow write: if signedIn() && uid == me() && canUse();
+    }
+    match /events/{id} {
+      allow read, write: if canUse();
+    }
+    match /polls/{id} {
+      allow read, write: if canUse();
+    }
+  }
+}
