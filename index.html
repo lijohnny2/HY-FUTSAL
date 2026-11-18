@@ -203,7 +203,7 @@ header.top{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(12p
 .linkbtn{background:none;border:0;padding:0;color:var(--brand);font-weight:600;font-size:13px}
 /* nav */
 nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-left)) calc(6px + env(safe-area-inset-bottom))}
-nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
 nav.tabs a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 0;border-radius:10px}
 nav.tabs a svg{width:23px;height:23px}
 nav.tabs a[aria-current="page"]{color:var(--brand)}
@@ -239,6 +239,70 @@ nav.tabs a[aria-current="page"]{color:var(--brand)}
 .authh{font-family:var(--display);font-weight:400;font-size:24px;margin:0;line-height:1.15}
 .authmsg{font-size:13.5px;color:var(--bad);min-height:1em}
 .authmsg.ok{color:var(--good)}
+.steps{display:flex;gap:4px;margin:2px 0 10px}
+.steps span{flex:1;text-align:center;font-size:11.5px;font-weight:700;padding:5px 2px;border-radius:7px;background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.steps span.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.steps span.done{background:var(--brand-soft);color:var(--brand);border-color:transparent}
+.confirmed{display:flex;align-items:center;gap:8px;margin:2px 0 6px;font-size:15px}
+.confirmed.big b{font-size:18px}
+.pickrow{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.pickrow:has(input:checked){border-color:var(--brand);background:var(--brand-soft)}
+.daychecks{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dc{position:relative}
+.dc input{position:absolute;opacity:0}
+.dc span{display:flex;flex-direction:column;align-items:center;border:1px solid var(--line);border-radius:9px;padding:6px 0;font-weight:700;font-size:14px;cursor:pointer;background:var(--surface)}
+.dc span small{font-weight:500;font-size:10.5px;color:var(--muted)}
+.dc input:checked+span{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.dc input:checked+span small{color:inherit;opacity:.85}
+.dc input:disabled+span{opacity:.35;cursor:not-allowed}
+.dc input:focus-visible+span{outline:2px solid var(--brand)}
+.semrow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.semrow button{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.semrow button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.tile span{font-size:12px;color:var(--muted);font-weight:600}
+.tile b{display:block;font-size:18px;margin-top:2px}
+.plus{color:var(--good)} .minus{color:var(--bad)}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.thumbs button{padding:0;border:0;border-radius:8px;overflow:hidden;aspect-ratio:1;background:var(--surface-2);position:relative}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.thumbs .x{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:13px;display:grid;place-items:center}
+.act{border-top:1px solid var(--line);padding:14px 0}
+.act:first-child{border-top:0;padding-top:2px}
+.lrow{display:grid;grid-template-columns:44px 1fr auto;gap:10px;padding:11px 0;border-top:1px solid var(--line);align-items:start;width:100%;text-align:left;background:none;border-left:0;border-right:0;border-bottom:0}
+.lrow:first-child{border-top:0}
+.lrow .amt{font-weight:700;text-align:right}
+.lrow .bal{font-size:11.5px;color:var(--muted);text-align:right}
+.rc{font-size:11.5px;color:var(--muted)}
+.viewer img{width:100%;border-radius:10px;display:block}
+.report{position:fixed;inset:0;z-index:40;background:#fff;color:#111;overflow:auto;color-scheme:light}
+.report .bar{position:sticky;top:0;background:#f3f5f8;border-bottom:1px solid #d9dee6;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;display:flex;gap:8px;align-items:center;z-index:1}
+.report .bar .btn{background:#fff;color:#111;border-color:#cfd6df}
+.report .bar .btn.primary{background:#0e4a84;color:#fff;border-color:#0e4a84}
+.rp{max-width:780px;margin:0 auto;padding:28px 22px 60px;font-size:13.5px;line-height:1.6}
+.rp h1{font-size:22px;margin:0 0 4px;text-align:center}
+.rp .sub{text-align:center;color:#555;margin-bottom:18px}
+.rp h2{break-after:avoid;font-size:16px;margin:26px 0 8px;padding-bottom:4px;border-bottom:2px solid #0e4a84}
+.rp h3{font-size:14px;margin:16px 0 6px}
+.rp table{width:100%;border-collapse:collapse;font-size:12.5px}
+.rp th,.rp td{border:1px solid #c9cfd8;padding:5px 6px;vertical-align:top}
+.rp th{background:#eef2f7;font-weight:700;white-space:nowrap}
+.rp td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rp .meta td:first-child{width:110px;background:#eef2f7;font-weight:700}
+.rp .ph{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:6px}
+.rp .ph figure{margin:0;break-inside:avoid}
+.rp .ph img{width:100%;max-height:300px;object-fit:contain;border:1px solid #ddd;background:#fafafa}
+.rp .ph figcaption{font-size:11px;color:#555}
+.rp .blk{break-inside:avoid}
+.rp .sign{margin-top:30px;text-align:right}
+@media print{
+  body > *:not(#report){display:none!important}
+  .report{position:static;overflow:visible}
+  .report .bar{display:none}
+  .rp{padding:0;max-width:none}
+  @page{margin:14mm}
+}
 .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:13.5px;opacity:0;pointer-events:none;transition:.2s;z-index:30;max-width:90%;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
@@ -269,10 +333,11 @@ nav.tabs a[aria-current="page"]{color:var(--brand)}
 <nav class="tabs" aria-label="메뉴" hidden>
   <div class="in">
     <a href="#home" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>홈</a>
-    <a href="#grades" data-tab="grades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>평점·등급</a>
+    <a href="#grades" data-tab="grades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>평점</a>
     <a href="#lineup" data-tab="lineup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M4 12h16"/><circle cx="12" cy="12" r="2.5"/></svg>라인업</a>
     <a href="#vote" data-tab="vote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13l4 4L20 5"/><path d="M4 21h16"/></svg>투표</a>
     <a href="#schedule" data-tab="schedule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>일정</a>
+    <a href="#records" data-tab="records"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>기록</a>
   </div>
 </nav>
 
@@ -296,10 +361,10 @@ const ATTRS=[['atk','공격','슈팅·결정력'],['def','수비','태클·위�
 const GRADES=[['S',8],['A',7],['B',6],['C',5],['D',-1]];
 const MIN_N=3;
 const TYPES={match:'경기',train:'훈련',etc:'기타'};
-const TABS=['home','grades','lineup','vote','schedule'];
+const TABS=['home','grades','lineup','vote','schedule','records'];
 
 /* ---------- state ---------- */
-const st={tab:'home',members:[],manual:[],profiles:[],roster:[],ratings:[],polls:[],votes:[],events:[],club:null,isAdmin:false,isOwner:false,staff:[],myName:'',showRejected:false,
+const st={tab:'home',members:[],manual:[],profiles:[],roster:[],ratings:[],polls:[],votes:[],events:[],club:null,isAdmin:false,isOwner:false,staff:[],myName:'',showRejected:false,ledger:[],activities:[],sem:null,recTab:'act',
   myId:null,canWrite:null,readOnly:false,noDb:false,loading:{},slow:false,
   lineupEv:null,pool:{},mode:'match',teams:2,lineIdx:0,showPast:false,showOldPolls:false};
 let DB=null,USER=null;
@@ -501,7 +566,7 @@ function render(){
   if(st.slow&&Object.values(st.loading).some(Boolean))b.push('데이터를 아직 불러오지 못했어요. 연결 상태를 확인해 주세요.');
   $('#banners').innerHTML=b.map(x=>`<div class="banner">${x}</div>`).join('');
   const v=$('#view');
-  const fn={home:vHome,grades:vGrades,lineup:vLineup,vote:vVote,schedule:vSchedule}[st.tab]||vHome;
+  const fn={home:vHome,grades:vGrades,lineup:vLineup,vote:vVote,schedule:vSchedule,records:vRecords}[st.tab]||vHome;
   v.innerHTML=usable()?fn():gateView();
 }
 function gateView(){
@@ -548,7 +613,7 @@ function attButtons(e){
   </div>${yes.length?`<div class="who">참석: ${yes.map(esc).join(', ')}</div>`:''}`;
 }
 function evMeta(e){
-  return `<div class="meta"><span class="num">${fmtD(e.date)}${isHm(e.time)?' · '+e.time:''}</span>${e.place?`<span>${esc(e.place)}</span>`:''}${e.note?`<span>${esc(e.note)}</span>`:''}</div>`;
+  return `<div class="meta"><span class="num">${fmtD(e.date)}${isHm(e.time)?' · '+e.time+(isHm(e.end)?'–'+e.end:''):''}</span>${e.place?`<span>${esc(e.place)}</span>`:''}${e.note?`<span>${esc(e.note)}</span>`:''}</div>`;
 }
 
 /* ----- home ----- */
@@ -585,10 +650,10 @@ function vHome(){
   h+=`</div>`;
   // poll
   const p=currentPoll();
-  h+=`<div class="card"><h2><span class="t">이번 주 활동 투표</span><a class="linkbtn" href="#vote">투표하기</a></h2>`;
-  if(p){const r=pollResults(p);const lead=r.lead;
-    h+=`<div class="small muted">${esc(p.title||'활동 투표')} · ${r.voters}명 참여</div>`;
-    h+=lead&&lead.count?`<div style="margin-top:8px;display:flex;align-items:baseline;gap:8px"><span class="lead">현재 1위</span><b style="font-size:18px">${esc(optLabel(p,lead.o))}</b><span class="muted small num">${lead.count}표</span></div>`:`<div class="small" style="margin-top:8px">아직 투표가 없어요. 먼저 투표해 주세요.</div>`;
+  h+=`<div class="card"><h2><span class="t">활동 투표</span><a class="linkbtn" href="#vote">투표하기</a></h2>`;
+  if(p){const s=pollSummary(p);
+    h+=`<div class="small muted">${esc(p.title||'활동 투표')}${s.stage?` · ${s.stage} · ${s.voters}명 참여`:''}</div>`;
+    h+=s.label?`<div style="margin-top:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><span class="lead">${s.tag}</span><b style="font-size:18px">${esc(s.label)}</b>${s.count?`<span class="muted small num">${s.count}표</span>`:''}</div>`:`<div class="small" style="margin-top:8px">아직 투표가 없어요. 먼저 투표해 주세요.</div>`;
   }else h+=`<div class="empty">진행 중인 투표가 없어요<button class="btn primary sm" data-act="newPoll" ${canAct()?'':'disabled'}>투표 만들기</button></div>`;
   h+=`</div>`;
   // distribution
@@ -700,40 +765,71 @@ function vLineup(){
 }
 
 /* ----- vote ----- */
-function sortedPolls(){return [...st.polls].filter(p=>Array.isArray(p.options)).sort((a,b)=>(Number(b.createdAt)||0)-(Number(a.createdAt)||0));}
+const SLOTS=['08','10','12','14','16','18','20'];
+const slotLabel=s=>`${s}:00–${pad(Number(s)+2)}:00`;
+function sortedPolls(){return [...st.polls].filter(p=>Array.isArray(p.days)).sort((a,b)=>(Number(b.createdAt)||0)-(Number(a.createdAt)||0));}
 function currentPoll(){return sortedPolls()[0]||null;}
-function optLabel(p,o){
-  if(!o)return '';
-  const d=Number(o.day);let date='';
-  if(isYmd(p.week)&&d>=0&&d<7){date=' ('+fmtShort(ymd(addDays(parse(p.week),d)))+')';}
-  return `${DAYS[d]||'?'}요일 ${isHm(o.time)?o.time:''}${date}`;
-}
-function pollResults(p){
-  const res=p.options.map(o=>({o,count:0,who:[]}));let voters=0;
-  st.votes.forEach(v=>{const arr=v.p&&Array.isArray(v.p[p.id])?v.p[p.id]:[];if(arr.length)voters++;res.forEach(r=>{if(arr.includes(r.o.id)){r.count++;r.who.push(uidName(v.id));}});});
+const pollDate=(p,d)=>isYmd(p.week)?ymd(addDays(parse(p.week),Number(d)||0)):null;
+const dayLabel=(p,d)=>{const s=pollDate(p,d);return s?fmtD(s):(DAYS[d]+'요일');};
+const dayKeys=p=>p.days.filter(d=>Number.isInteger(d)&&d>=0&&d<7).sort((a,b)=>a-b).map(d=>'d'+d);
+function tally(p,field,keys){
+  const res=keys.map(k=>({k,count:0,who:[]}));let voters=0;
+  st.votes.forEach(v=>{const m=v[field];const arr=m&&typeof m==='object'&&Array.isArray(m[p.id])?m[p.id]:[];if(arr.length)voters++;res.forEach(r=>{if(arr.includes(r.k)){r.count++;r.who.push(uidName(v.id));}});});
   const max=Math.max(0,...res.map(r=>r.count));
-  const lead=max?res.find(r=>r.count===max):null;
-  return {res,voters,max,lead};
+  return {res,voters,max,lead:max?res.find(r=>r.count===max):null};
+}
+function pollStage(p){
+  if(p.stage==='done'&&isYmd(p.date)&&SLOTS.includes(p.slot))return 'done';
+  if(p.stage==='time'&&isYmd(p.date))return 'time';
+  return 'date';
+}
+function pollSummary(p){
+  const s=pollStage(p);
+  if(s==='done')return {label:`${fmtD(p.date)} ${slotLabel(p.slot)}`,tag:'확정',count:0,voters:0,stage:''};
+  if(s==='time'){const r=tally(p,'t',SLOTS);return {label:r.lead?`${fmtD(p.date)} ${slotLabel(r.lead.k)}`:fmtD(p.date),tag:r.lead?'시간 1위':'날짜 확정',count:r.lead?r.lead.count:0,voters:r.voters,stage:'시간 투표 중'};}
+  const r=tally(p,'p',dayKeys(p));
+  return {label:r.lead?dayLabel(p,Number(r.lead.k.slice(1))):'',tag:'날짜 1위',count:r.lead?r.lead.count:0,voters:r.voters,stage:'날짜 투표 중'};
+}
+function optList(p,field,keys,labelFn,mine,enabled){
+  const r=tally(p,field,keys);
+  return {r,html:r.res.map(x=>{const pressed=mine.includes(x.k);const w=r.max?x.count/r.max*100:0;const isLead=r.max&&x.count===r.max;
+    return `<button class="opt" data-act="vote" data-field="${field}" data-poll="${esc(p.id)}" data-opt="${esc(x.k)}" aria-pressed="${pressed}" ${enabled?'':'disabled'}><span class="fill" style="width:${w}%"></span>
+      <span class="top"><span class="box"></span><span class="lab">${esc(labelFn(x.k))}</span>${isLead?'<span class="lead">1위</span>':''}<span class="cnt num">${x.count}</span></span>
+      ${x.who.length?`<span class="vs" style="display:block">${x.who.map(esc).join(', ')}</span>`:''}</button>`;}).join('')};
+}
+function stepper(stage){
+  const steps=[['date','① 날짜 투표'],['time','② 시간 투표'],['done','③ 확정']];const i=steps.findIndex(s=>s[0]===stage);
+  return `<div class="steps">${steps.map((s,j)=>`<span class="${j<i?'done':j===i?'on':''}">${s[1]}</span>`).join('')}</div>`;
 }
 function pollCard(p,full){
-  const r=pollResults(p);const mine=(myVotes()&&myVotes().p&&Array.isArray(myVotes().p[p.id]))?myVotes().p[p.id]:[];
+  const stage=pollStage(p);const mv=myVotes()||{};
   const range=isYmd(p.week)?`${fmtShort(p.week)} ~ ${fmtShort(ymd(addDays(parse(p.week),6)))}`:'';
-  let h=`<div class="card"><h2><span class="t">${esc(p.title||'활동 투표')}</span><span class="muted small num">${r.voters}명 참여</span></h2>
-    <div class="small muted">${range?range+' · ':''}가능한 시간을 모두 고르세요 (중복 선택)</div>`;
-  h+=r.res.map(x=>{const pressed=mine.includes(x.o.id);const w=r.max?x.count/Math.max(r.max,1)*100:0;const isLead=r.max&&x.count===r.max;
-    return `<button class="opt" data-act="vote" data-poll="${esc(p.id)}" data-opt="${esc(x.o.id)}" aria-pressed="${pressed}" ${canAct()?'':'disabled'}><span class="fill" style="width:${w}%"></span>
-      <span class="top"><span class="box"></span><span class="lab">${esc(optLabel(p,x.o))}</span>${isLead?'<span class="lead">1위</span>':''}<span class="cnt num">${x.count}</span></span>
-      ${x.who.length?`<span class="vs" style="display:block">${x.who.map(esc).join(', ')}</span>`:''}</button>`;}).join('');
-  if(full){
-    h+=`<div class="row wrap" style="margin-top:12px;gap:8px">${r.lead?`<button class="btn accent sm" data-act="pollToEvent" data-poll="${esc(p.id)}" ${canAct()?'':'disabled'}>1위 시간을 일정으로 등록</button>`:''}
-      ${(DB&&!st.readOnly&&(p.by===st.myId||st.isAdmin))?`<button class="btn sm danger" data-act="delPoll" data-poll="${esc(p.id)}">투표 삭제</button>`:''}</div>`;
+  let h=`<div class="card"><h2><span class="t">${esc(p.title||'활동 투표')}</span><span class="muted small num">${range}</span></h2>${stepper(stage)}`;
+  if(stage==='date'){
+    const mine=mv.p&&Array.isArray(mv.p[p.id])?mv.p[p.id]:[];
+    const o=optList(p,'p',dayKeys(p),k=>dayLabel(p,Number(k.slice(1))),mine,canAct());
+    h+=`<div class="small muted">가능한 날짜를 모두 고르세요 · ${o.r.voters}명 참여</div>`+o.html;
+    if(full&&canAdmin())h+=`<button class="btn accent block" style="margin-top:12px" data-act="pickDate" data-poll="${esc(p.id)}" ${o.r.lead?'':'disabled'}>날짜 확정하고 시간 투표 열기</button>`;
+    else if(full)h+=`<div class="note" style="margin-top:10px">운영진이 날짜를 확정하면 08:00~22:00를 2시간씩 나눈 시간 투표가 열려요.</div>`;
+  }else if(stage==='time'){
+    const mine=mv.t&&Array.isArray(mv.t[p.id])?mv.t[p.id]:[];
+    const o=optList(p,'t',SLOTS,slotLabel,mine,canAct());
+    h+=`<div class="confirmed"><span class="chip train">날짜 확정</span><b>${fmtD(p.date)}</b></div><div class="small muted">가능한 시간을 모두 고르세요 (2시간씩) · ${o.r.voters}명 참여</div>`+o.html;
+    if(full&&canAdmin())h+=`<div class="row" style="gap:8px;margin-top:12px"><button class="btn accent grow" data-act="pickTime" data-poll="${esc(p.id)}" ${o.r.lead?'':'disabled'}>시간 확정하고 일정 등록</button><button class="btn sm ghost" data-act="backToDate" data-poll="${esc(p.id)}">날짜 다시</button></div>`;
+  }else{
+    const ev=st.events.find(e=>e.id===p.eventId);
+    h+=`<div class="confirmed big"><span class="chip match">확정</span><b class="num">${fmtD(p.date)} ${slotLabel(p.slot)}</b></div>`;
+    if(ev)h+=`<div class="small muted">일정에 등록됐어요 · ${esc(evTitle(ev))}${ev.place?' · '+esc(ev.place):''}</div>`;
+    const t=tally(p,'t',[p.slot]);if(t.res[0].who.length)h+=`<div class="who">이 시간 가능: ${t.res[0].who.map(esc).join(', ')}</div>`;
+    if(full&&canAdmin())h+=`<button class="btn sm ghost" style="margin-top:8px" data-act="backToTime" data-poll="${esc(p.id)}">시간 다시 고르기</button>`;
   }
+  if(full&&DB&&(p.by===st.myId||st.isAdmin))h+=`<div style="margin-top:10px"><button class="btn sm danger" data-act="delPoll" data-poll="${esc(p.id)}">투표 삭제</button></div>`;
   return h+`</div>`;
 }
 function vVote(){
   const ps=sortedPolls();
   let h=`<div class="row"><div class="grow"><div class="eyebrow">금주 활동일 · 시간</div></div><button class="btn primary sm" data-act="newPoll" ${canAct()?'':'disabled'}>+ 새 투표</button></div>`;
-  if(!ps.length)return h+`<div class="card"><div class="empty">아직 투표가 없어요. 이번 주 활동 가능한 요일과 시간을 후보로 올려 보세요.</div></div>`;
+  if(!ps.length)return h+`<div class="card"><div class="empty">아직 투표가 없어요. 이번 주 활동 가능한 날짜를 후보로 올려 보세요.<br>날짜가 확정되면 08~22시 2시간 단위 시간 투표가 자동으로 열려요.</div></div>`;
   h+=pollCard(ps[0],true);
   const old=ps.slice(1);
   if(old.length){
@@ -743,12 +839,210 @@ function vVote(){
   return h;
 }
 
+/* ----- records ----- */
+const won=n=>(Number(n)||0).toLocaleString('ko-KR')+'원';
+const CATS={in:['회비','지원금','기타 수입'],out:['구장 대여','장비·용품','음료·간식','대회 참가비','기타 지출']};
+function semesterOf(ds){
+  const d=parse(ds);const y=d.getFullYear(),m=d.getMonth()+1;
+  if(m>=3&&m<=8)return {key:`${y}-1`,label:`${y}년 1학기`,from:`${y}-03-01`,to:`${y}-08-31`};
+  const sy=m>=9?y:y-1;return {key:`${sy}-2`,label:`${sy}년 2학기`,from:`${sy}-09-01`,to:ymd(new Date(sy+1,2,0))};
+}
+function semesters(){const out=[];let s=semesterOf(today());for(let i=0;i<4;i++){out.push(s);s=semesterOf(ymd(addDays(parse(s.from),-1)));}return out;}
+function curSem(){const list=semesters();return list.find(s=>s.key===st.sem)||list[0];}
+const inSem=(s,d)=>isYmd(d)&&d>=s.from&&d<=s.to;
+const cleanFiles=a=>Array.isArray(a)?a.filter(f=>f&&typeof f.id==='string'&&typeof f.thumb==='string'&&f.thumb.startsWith('data:image/')):[];
+function semData(s){
+  const acts=st.activities.filter(a=>inSem(s,a.date)).sort((a,b)=>a.date<b.date?-1:1);
+  const all=st.ledger.filter(l=>isYmd(l.date)&&(l.kind==='in'||l.kind==='out')).sort((a,b)=>a.date===b.date?((Number(a.at)||0)-(Number(b.at)||0)):(a.date<b.date?-1:1));
+  const amt=l=>Math.max(0,Math.round(Number(l.amount)||0));
+  const carry=all.filter(l=>l.date<s.from).reduce((t,l)=>t+(l.kind==='in'?amt(l):-amt(l)),0);
+  let bal=carry;const rows=all.filter(l=>inSem(s,l.date)).map(l=>{bal+=l.kind==='in'?amt(l):-amt(l);return Object.assign({},l,{amt:amt(l),bal});});
+  const tin=rows.filter(r=>r.kind==='in').reduce((t,r)=>t+r.amt,0),tout=rows.filter(r=>r.kind==='out').reduce((t,r)=>t+r.amt,0);
+  const total=all.reduce((t,l)=>t+(l.kind==='in'?amt(l):-amt(l)),0);
+  return {acts,rows,carry,tin,tout,end:carry+tin-tout,total};
+}
+const thumbsHTML=(files,owner)=>files.length?`<div class="thumbs">${files.map(f=>`<button data-act="viewFile" data-id="${esc(f.id)}" aria-label="사진 크게 보기"><img src="${esc(f.thumb)}" alt=""></button>`).join('')}</div>`:'';
+function vRecords(){
+  const s=curSem();const D=semData(s);const staff=canAdmin();
+  let h=`<div class="semrow" role="group" aria-label="학기 선택">${semesters().map(x=>`<button data-act="pickSem" data-k="${x.key}" aria-pressed="${x.key===s.key}">${x.label}</button>`).join('')}</div>`;
+  h+=`<div class="tiles"><div class="tile"><span>활동 기록</span><b class="num">${D.acts.length}회</b></div><div class="tile"><span>현재 잔액</span><b class="num">${won(D.total)}</b></div>
+    <div class="tile"><span>학기 수입</span><b class="num plus">${won(D.tin)}</b></div><div class="tile"><span>학기 지출</span><b class="num minus">${won(D.tout)}</b></div></div>`;
+  h+=`<div class="card"><h2><span class="t">학생회 제출용</span></h2><div class="small muted" style="margin-bottom:10px">${s.label} (${fmtShort(s.from)}~${fmtShort(s.to)}) 활동 보고서와 결산 내역을 사진·영수증까지 한 문서로 만들어요.</div>
+    <div class="row wrap" style="gap:8px"><button class="btn primary" data-act="openReport">보고서 보기 · PDF 저장</button><button class="btn" data-act="csv">결산 엑셀(CSV) 받기</button></div></div>`;
+  h+=`<div class="seg"><button data-act="recTab" data-v="act" aria-pressed="${st.recTab==='act'}">활동 기록 ${D.acts.length}</button><button data-act="recTab" data-v="money" aria-pressed="${st.recTab==='money'}">회계 장부 ${D.rows.length}</button></div>`;
+  if(st.recTab==='act'){
+    h+=`<div class="card"><h2><span class="t">활동 기록</span>${staff?`<button class="btn sm primary" data-act="newAct">+ 활동 기록</button>`:''}</h2>`;
+    h+=D.acts.length?D.acts.map(a=>{const fs=cleanFiles(a.files);return `<div class="act"><div class="row"><span class="grow"><b>${esc(a.title||'활동')}</b><div class="small muted num">${fmtD(a.date)}${Number(a.people)?` · ${Number(a.people)}명 참여`:''}</div></span>${staff?`<button class="btn sm ghost" data-act="editAct" data-id="${esc(a.id)}">수정</button>`:''}</div>${a.desc?`<div class="small" style="margin-top:6px;white-space:pre-wrap">${esc(a.desc)}</div>`:''}${thumbsHTML(fs)}</div>`;}).join('')
+      :`<div class="empty">이 학기 활동 기록이 없어요.${staff?' 활동 후 사진과 함께 남겨 두면 보고서에 그대로 들어가요.':''}</div>`;
+    h+=`</div>`;
+  }else{
+    h+=`<div class="card"><h2><span class="t">회계 장부</span>${staff?`<button class="btn sm primary" data-act="newLedger">+ 수입·지출</button>`:''}</h2>`;
+    h+=`<div class="small muted" style="margin-bottom:6px">전기 이월 <b class="num">${won(D.carry)}</b> → 학기 말 잔액 <b class="num">${won(D.end)}</b></div>`;
+    h+=D.rows.length?`<div>${D.rows.slice().reverse().map(r=>{const fs=cleanFiles(r.files);const d=parse(r.date);return `<div class="lrow"><div class="datebox" style="width:44px"><b class="num" style="font-size:17px">${d.getDate()}</b><span>${d.getMonth()+1}월</span></div>
+      <div style="min-width:0"><div class="row wrap" style="gap:6px"><span class="chip ${r.kind==='in'?'train':'match'}">${esc(CATS[r.kind].includes(r.cat)?r.cat:(r.kind==='in'?'수입':'지출'))}</span>${fs.length?`<span class="rc">증빙 ${fs.length}장</span>`:(r.kind==='out'?'<span class="rc" style="color:var(--warn)">증빙 없음</span>':'')}</div>
+      <div style="font-weight:600;margin-top:2px">${esc(r.memo||'')}</div>${thumbsHTML(fs)}</div>
+      <div><div class="amt num ${r.kind==='in'?'plus':'minus'}">${r.kind==='in'?'+':'−'}${won(r.amt)}</div><div class="bal num">잔액 ${won(r.bal)}</div>${staff?`<button class="linkbtn" style="float:right;margin-top:4px" data-act="editLedger" data-id="${esc(r.id)}">수정</button>`:''}</div></div>`;}).join('')}</div>`
+      :`<div class="empty">이 학기 수입·지출 기록이 없어요.${staff?' 회비를 걷거나 구장비를 낼 때마다 영수증 사진과 함께 기록하세요.':''}</div>`;
+    h+=`</div>`;
+  }
+  if(!staff)h+=`<div class="note">활동 사진과 영수증은 동아리장·운영진만 올릴 수 있어요.</div>`;
+  return h;
+}
+
+/* ----- photos ----- */
+async function compressImage(file,max,q){
+  const url=URL.createObjectURL(file);
+  try{
+    const img=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>rej(new Error('decode'));i.src=url;});
+    const c=document.createElement('canvas');
+    const make=(mx,qq)=>{const s=Math.min(1,mx/Math.max(img.naturalWidth,img.naturalHeight));c.width=Math.max(1,Math.round(img.naturalWidth*s));c.height=Math.max(1,Math.round(img.naturalHeight*s));const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0,c.width,c.height);return c.toDataURL('image/jpeg',qq);};
+    let mx=max,qq=q,data=make(mx,qq);
+    while(data.length>880000&&mx>500){mx=Math.round(mx*0.8);qq=Math.max(0.45,qq-0.07);data=make(mx,qq);}
+    return {data,thumb:make(320,0.6)};
+  }finally{URL.revokeObjectURL(url);}
+}
+async function uploadPhotos(files,kind,maxCount,existing){
+  const list=[...(files||[])].filter(f=>/^image\//.test(f.type)||/\.(heic|heif|jpe?g|png|webp)$/i.test(f.name));
+  const room=Math.max(0,maxCount-existing.length);
+  if(list.length>room)toast(`사진은 최대 ${maxCount}장까지예요. ${room}장만 올릴게요`);
+  const out=[];
+  for(let i=0;i<Math.min(list.length,room);i++){
+    toast(`사진 올리는 중 ${i+1}/${Math.min(list.length,room)}`);
+    let r;try{r=await compressImage(list[i],kind==='receipt'?1800:1600,0.72);}catch(e){toast(`${list[i].name}을(를) 열 수 없어요. JPG·PNG로 다시 골라 주세요`);continue;}
+    const ref=DB.collection('files').doc();
+    await write(ref.path,()=>ref.set({data:r.data,kind,by:st.myId,at:Date.now()}));
+    out.push({id:ref.id,thumb:r.thumb});
+  }
+  return out;
+}
+const fileCache={};
+async function loadFile(id){
+  if(fileCache[id])return fileCache[id];
+  const s=await DB.doc('files/'+id).get();const d=s.exists?s.data():null;
+  const v=d&&typeof d.data==='string'&&d.data.startsWith('data:image/')?d.data:null;if(v)fileCache[id]=v;return v;
+}
+let sheetFiles=[];let removedFiles=[];
+function fileEditor(kind,max){
+  return `<div class="field"><span>${kind==='receipt'?'영수증·증빙 사진':'활동 사진'} (최대 ${max}장)</span>
+    <div id="fileThumbs">${editThumbs()}</div>
+    <input type="file" id="fPick" accept="image/*" multiple>
+    <span class="small muted" id="fPickInfo" style="font-weight:400">${kind==='receipt'?'영수증, 계좌이체 내역 캡처, 카드 승인 문자 등을 찍어 올리세요.':'단체 사진, 경기 장면 등을 올리세요.'}</span></div>`;
+}
+const editThumbs=()=>sheetFiles.length?`<div class="thumbs">${sheetFiles.map((f,i)=>`<button data-act="rmFile" data-i="${i}" aria-label="사진 빼기"><img src="${esc(f.thumb)}" alt=""><span class="x">✕</span></button>`).join('')}</div>`:'';
+function activitySheet(a){
+  const s=curSem();sheetFiles=a?cleanFiles(a.files).slice():[];removedFiles=[];
+  const pastEv=validEvents().filter(e=>e.date<=today()&&inSem(s,e.date)).sort((x,y)=>evKey(x)<evKey(y)?1:-1);
+  let h=sheetHead(a?'활동 기록 수정':'활동 기록 추가');
+  if(!a&&pastEv.length)h+=`<label class="field"><span>지난 일정에서 불러오기 (선택)</span><select id="aEv"><option value="">직접 입력</option>${pastEv.map(e=>`<option value="${esc(e.id)}">${fmtShort(e.date)} ${esc(evTitle(e))}</option>`).join('')}</select></label>`;
+  h+=`<div class="two"><label class="field"><span>날짜</span><input type="date" id="aDate" value="${esc(a&&isYmd(a.date)?a.date:today())}"></label>
+    <label class="field"><span>참여 인원</span><input id="aPeople" inputmode="numeric" maxlength="3" value="${a&&Number(a.people)?Number(a.people):''}" placeholder="12"></label></div>
+    <label class="field"><span>활동명</span><input id="aTitle" maxlength="40" value="${esc(a?a.title||'':'')}" placeholder="예: 정기 활동 (자체전)"></label>
+    <label class="field"><span>활동 내용</span><textarea id="aDesc" maxlength="500" placeholder="장소, 진행 방식, 결과 등을 적어 주세요">${esc(a?a.desc||'':'')}</textarea></label>
+    ${fileEditor('photo',10)}
+    <button class="btn primary block" data-act="saveSheet">${a?'저장':'기록 추가'}</button>
+    ${a?`<button class="btn danger block" data-act="delAct" data-id="${esc(a.id)}">활동 기록 삭제</button>`:''}`;
+  openSheet(h,async()=>{
+    const date=iv('aDate');if(!isYmd(date)){toast('날짜를 고르세요');return;}
+    const title=iv('aTitle');if(!title){toast('활동명을 입력하세요');return;}
+    const btn=$('#sheet [data-act=saveSheet]');if(btn)btn.disabled=true;
+    try{
+      const added=await uploadPhotos($('#fPick').files,'photo',10,sheetFiles);
+      const files=sheetFiles.concat(added);
+      const body={date,title,people:Math.max(0,parseInt(iv('aPeople'),10)||0),desc:iv('aDesc'),files,updatedAt:Date.now()};
+      const ref=a?DB.doc('activities/'+a.id):DB.collection('activities').doc();
+      await write(ref.path,()=>a?ref.update(body):ref.set(Object.assign(body,{by:st.myId,at:Date.now(),eventId:iv('aEv')||null})));
+      removedFiles.forEach(id=>{const r=DB.doc('files/'+id);write(r.path,()=>r.delete()).catch(()=>{});});
+      toast('활동 기록을 저장했어요');closeSheet();
+    }finally{if(btn&&btn.isConnected)btn.disabled=false;}
+  });
+}
+function ledgerSheet(l){
+  sheetFiles=l?cleanFiles(l.files).slice():[];removedFiles=[];
+  const kind=l?l.kind:'out';
+  const catOpts=k=>CATS[k].map(c=>`<option ${l&&l.cat===c?'selected':''}>${c}</option>`).join('');
+  let h=sheetHead(l?'수입·지출 수정':'수입·지출 기록');
+  h+=`<div class="field"><span>구분</span>${radios('lKind',[['in','수입'],['out','지출']],kind)}</div>
+    <div class="two"><label class="field"><span>날짜</span><input type="date" id="lDate" value="${esc(l&&isYmd(l.date)?l.date:today())}"></label>
+    <label class="field"><span>금액 (원)</span><input id="lAmt" inputmode="numeric" maxlength="12" value="${l?Number(l.amount)||'':''}" placeholder="60000"></label></div>
+    <label class="field"><span>항목</span><select id="lCat">${catOpts(kind)}</select></label>
+    <label class="field"><span>내용</span><input id="lMemo" maxlength="60" value="${esc(l?l.memo||'':'')}" placeholder="예: 11/20 구장 대여비 (2시간)"></label>
+    ${fileEditor('receipt',5)}
+    <button class="btn primary block" data-act="saveSheet">${l?'저장':'기록 추가'}</button>
+    ${l?`<button class="btn danger block" data-act="delLedger" data-id="${esc(l.id)}">기록 삭제</button>`:''}`;
+  openSheet(h,async()=>{
+    const k=rv('lKind')==='in'?'in':'out';const date=iv('lDate');
+    const amount=parseInt(iv('lAmt').replace(/[^\d]/g,''),10)||0;
+    if(!isYmd(date)){toast('날짜를 고르세요');return;}
+    if(amount<=0){toast('금액을 입력하세요');return;}
+    const memo=iv('lMemo');if(!memo){toast('내용을 입력하세요');return;}
+    const btn=$('#sheet [data-act=saveSheet]');if(btn)btn.disabled=true;
+    try{
+      const added=await uploadPhotos($('#fPick').files,'receipt',5,sheetFiles);
+      const body={kind:k,date,amount,cat:$('#lCat').value,memo,files:sheetFiles.concat(added),updatedAt:Date.now()};
+      const ref=l?DB.doc('ledger/'+l.id):DB.collection('ledger').doc();
+      await write(ref.path,()=>l?ref.update(body):ref.set(Object.assign(body,{by:st.myId,at:Date.now()})));
+      removedFiles.forEach(id=>{const r=DB.doc('files/'+id);write(r.path,()=>r.delete()).catch(()=>{});});
+      if(k==='out'&&!body.files.length)toast('저장했어요. 영수증 사진이 없으면 결산 인준이 어려울 수 있어요');else toast('저장했어요');
+      closeSheet();
+    }finally{if(btn&&btn.isConnected)btn.disabled=false;}
+  });
+}
+async function viewFile(id){
+  openSheet(sheetHead('사진')+`<div class="viewer" id="viewer"><div class="empty">불러오는 중…</div></div>`);
+  const d=await loadFile(id).catch(()=>null);const v=$('#viewer');if(!v)return;
+  v.innerHTML=d?`<img src="${d}" alt="첨부 사진">`:'<div class="empty">사진을 불러오지 못했어요</div>';
+}
+
+/* ----- report ----- */
+async function openReport(){
+  const s=curSem();const D=semData(s);
+  const club=(st.club&&st.club.name)||window.APP_NAME||'한양대 풋살동아리';
+  const owner=st.admins&&st.profiles.find(p=>p.id===st.admins.owner);
+  const memberCount=st.members.length;
+  let el=$('#report');if(!el){el=document.createElement('div');el.id='report';el.className='report';document.body.appendChild(el);}
+  el.hidden=false;document.body.style.overflow='hidden';
+  const ids=[];D.acts.forEach(a=>cleanFiles(a.files).forEach(f=>ids.push(f.id)));D.rows.forEach(r=>cleanFiles(r.files).forEach(f=>ids.push(f.id)));
+  const bar=(msg)=>`<div class="bar"><button class="btn" data-act="closeReport">닫기</button><span class="grow small" style="color:#555">${msg}</span><button class="btn primary" data-act="printReport">인쇄 · PDF 저장</button></div>`;
+  el.innerHTML=bar(`사진 불러오는 중 0/${ids.length}`)+'<div class="rp"></div>';
+  let done=0;const imgs={};
+  await Promise.all(ids.map(async id=>{imgs[id]=await loadFile(id).catch(()=>null);done++;const b=el.querySelector('.bar span');if(b)b.textContent=`사진 불러오는 중 ${done}/${ids.length}`;}));
+  const img=(f,cap)=>`<figure><img src="${imgs[f.id]||f.thumb}" alt=""><figcaption>${esc(cap)}</figcaption></figure>`;
+  let r=`<h1>${esc(club)} ${s.label} 활동 보고서 및 결산 내역</h1><div class="sub">활동 기간 ${s.from.replace(/-/g,'.')} ~ ${s.to.replace(/-/g,'.')} · 작성일 ${today().replace(/-/g,'.')}</div>
+    <table class="meta"><tr><td>동아리명</td><td>${esc(club)}</td></tr><tr><td>대표자</td><td>${esc(owner?owner.name+(owner.year?` (${owner.year}학번 ${owner.dept})`:''):'')}</td></tr>
+    <tr><td>회원 수</td><td>${memberCount}명</td></tr><tr><td>활동 횟수</td><td>${D.acts.length}회</td></tr>
+    <tr><td>결산 요약</td><td>전기 이월 ${won(D.carry)} · 수입 ${won(D.tin)} · 지출 ${won(D.tout)} · 차기 이월 ${won(D.end)}</td></tr></table>`;
+  r+=`<h2>1. 활동 내역</h2>`;
+  if(D.acts.length){
+    r+=`<table><thead><tr><th>번호</th><th>날짜</th><th>활동명</th><th>참여</th><th>내용</th></tr></thead><tbody>${D.acts.map((a,i)=>`<tr><td class="n">${i+1}</td><td class="n">${a.date.replace(/-/g,'.')}</td><td>${esc(a.title)}</td><td class="n">${Number(a.people)?Number(a.people)+'명':''}</td><td style="white-space:pre-wrap">${esc(a.desc||'')}</td></tr>`).join('')}</tbody></table>`;
+    r+=`<h3>활동 사진</h3>`+D.acts.map((a,i)=>{const fs=cleanFiles(a.files);return fs.length?`<div class="blk"><div style="font-weight:700;margin-top:10px">${i+1}. ${a.date.replace(/-/g,'.')} ${esc(a.title)}</div><div class="ph">${fs.map((f,j)=>img(f,`활동 ${i+1}-${j+1}`)).join('')}</div></div>`:'';}).join('');
+  }else r+=`<p>기록된 활동이 없습니다.</p>`;
+  r+=`<h2>2. 결산 내역</h2><table><thead><tr><th>번호</th><th>날짜</th><th>구분</th><th>항목</th><th>내용</th><th>수입</th><th>지출</th><th>잔액</th><th>증빙</th></tr></thead><tbody>
+    <tr><td></td><td></td><td colspan="4">전기 이월</td><td></td><td class="n">${won(D.carry)}</td><td></td></tr>
+    ${D.rows.map((x,i)=>`<tr><td class="n">${i+1}</td><td class="n">${x.date.replace(/-/g,'.')}</td><td>${x.kind==='in'?'수입':'지출'}</td><td>${esc(x.cat||'')}</td><td>${esc(x.memo||'')}</td><td class="n">${x.kind==='in'?won(x.amt):''}</td><td class="n">${x.kind==='out'?won(x.amt):''}</td><td class="n">${won(x.bal)}</td><td class="n">${cleanFiles(x.files).length?'증빙 '+(i+1):'-'}</td></tr>`).join('')}
+    <tr><th colspan="5">합계</th><th class="n">${won(D.tin)}</th><th class="n">${won(D.tout)}</th><th class="n">${won(D.end)}</th><th></th></tr></tbody></table>`;
+  const rec=D.rows.map((x,i)=>({x,i,fs:cleanFiles(x.files)})).filter(o=>o.fs.length);
+  r+=`<h2>3. 증빙 자료</h2>`+(rec.length?rec.map(o=>`<div class="blk"><div style="font-weight:700;margin-top:10px">증빙 ${o.i+1}. ${o.x.date.replace(/-/g,'.')} ${esc(o.x.memo||'')} (${o.x.kind==='in'?'수입':'지출'} ${won(o.x.amt)})</div><div class="ph">${o.fs.map((f,j)=>img(f,`증빙 ${o.i+1}-${j+1}`)).join('')}</div></div>`).join(''):'<p>첨부된 증빙 자료가 없습니다.</p>');
+  r+=`<div class="sign">위와 같이 보고합니다.<br><br>${today().replace(/-/g,'. ')}.<br>${esc(club)} 대표 ${esc(owner?owner.name:'')} (인)</div>`;
+  el.innerHTML=bar(isIOS&&isStandalone()?'인쇄가 안 되면 Safari에서 열어 공유 → 프린트 → PDF로 저장하세요':'인쇄 화면에서 대상(프린터)을 "PDF로 저장"으로 고르세요')+`<div class="rp">${r}</div>`;
+}
+function downloadCSV(){
+  const s=curSem();const D=semData(s);
+  const q=v=>`"${String(v==null?'':v).replace(/"/g,'""')}"`;
+  const lines=[['번호','날짜','구분','항목','내용','수입','지출','잔액','증빙 사진 수'].map(q).join(',')];
+  lines.push(['','','','','전기 이월','','',D.carry,''].map(q).join(','));
+  D.rows.forEach((x,i)=>lines.push([i+1,x.date,x.kind==='in'?'수입':'지출',x.cat||'',x.memo||'',x.kind==='in'?x.amt:'',x.kind==='out'?x.amt:'',x.bal,cleanFiles(x.files).length].map(q).join(',')));
+  lines.push(['','','','','합계',D.tin,D.tout,D.end,''].map(q).join(','));
+  const blob=new Blob(['﻿'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`풋살동아리_${s.key}_결산.csv`;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+
 /* ----- schedule ----- */
 function evBlock(e){
   const d=parse(e.date);
   return `<div class="ev"><div class="evhead"><div class="datebox"><b class="num">${d.getDate()}</b><span>${d.getMonth()+1}월 ${dowK(d)}</span></div>
     <div class="grow"><div class="row wrap" style="gap:6px"><span class="chip ${e.type}">${TYPES[e.type]||'기타'}</span><span class="muted small num">${ddayLabel(ddays(e.date))}</span>${e.lineup?'<span class="chip">라인업 있음</span>':''}</div>
-    <div class="evtitle">${esc(evTitle(e))}</div><div class="meta"><span class="num">${isHm(e.time)?e.time:'시간 미정'}${e.place?' · '+esc(e.place):''}</span>${e.note?`<span>${esc(e.note)}</span>`:''}</div></div>
+    <div class="evtitle">${esc(evTitle(e))}</div><div class="meta"><span class="num">${isHm(e.time)?e.time+(isHm(e.end)?'–'+e.end:''):'시간 미정'}${e.place?' · '+esc(e.place):''}</span>${e.note?`<span>${esc(e.note)}</span>`:''}</div></div>
     <button class="btn sm ghost" data-act="editEvent" data-ev="${esc(e.id)}" ${canAct()?'':'disabled'} aria-label="일정 수정">수정</button></div>
     ${e.date>=today()?attButtons(e):''}</div>`;
 }
@@ -876,7 +1170,8 @@ function eventSheet(e,prefill){
   h+=`<div class="field"><span>종류</span>${radios('eType',[['match','경기'],['train','훈련'],['etc','기타']],type)}</div>
     <label class="field"><span>제목</span><input id="eTitle" maxlength="40" value="${esc(v.title||'')}" placeholder="비우면 자동으로 정해져요"></label>
     <div class="two"><label class="field"><span>날짜</span><input type="date" id="eDate" value="${esc(isYmd(v.date)?v.date:today())}"></label>
-    <label class="field"><span>시간</span><input type="time" id="eTime" value="${esc(isHm(v.time)?v.time:'19:00')}"></label></div>
+    <label class="field"><span>시작 시간</span><input type="time" id="eTime" value="${esc(isHm(v.time)?v.time:'19:00')}"></label></div>
+    <div class="two"><label class="field"><span>종료 시간 (선택)</span><input type="time" id="eEnd" value="${esc(isHm(v.end)?v.end:'')}"></label><span></span></div>
     <label class="field"><span>장소</span><input id="ePlace" maxlength="60" value="${esc(v.place||'')}" placeholder="예: 한양대 풋살장"></label>
     <label class="field" id="oppField" ${type==='match'?'':'hidden'}><span>상대팀</span><input id="eOpp" maxlength="30" value="${esc(v.opp||'')}" placeholder="예: OO대 풋살부"></label>
     <label class="field"><span>메모</span><textarea id="eNote" maxlength="200" placeholder="준비물, 회비 등">${esc(v.note||'')}</textarea></label>
@@ -885,33 +1180,56 @@ function eventSheet(e,prefill){
   openSheet(h,async()=>{
     const date=iv('eDate');if(!isYmd(date)){toast('날짜를 고르세요');return;}
     const t=rv('eType')||'match';const time=iv('eTime');
-    const body={type:t,title:iv('eTitle'),date,time:isHm(time)?time:'',place:iv('ePlace'),opp:t==='match'?iv('eOpp'):'',note:iv('eNote')};
+    const end=iv('eEnd');const body={type:t,title:iv('eTitle'),date,time:isHm(time)?time:'',end:isHm(end)?end:'',place:iv('ePlace'),opp:t==='match'?iv('eOpp'):'',note:iv('eNote')};
     if(e){const ref=DB.doc('events/'+e.id);await write(ref.path,()=>ref.update(body));toast('일정을 수정했어요');}
     else{const ref=DB.collection('events').doc();await write(ref.path,()=>ref.set(Object.assign(body,{createdAt:Date.now(),by:st.myId})));toast('일정을 추가했어요');}
     closeSheet();
   });
 }
 function pollSheet(){
-  const mon=mondayOf(new Date());const nextMon=addDays(mon,7);
-  const defOpts=[[3,'19:00'],[4,'19:00'],[5,'10:00']];
-  const row=(d,t)=>`<div class="optrow"><select aria-label="요일">${DAYS.map((x,i)=>`<option value="${i}" ${i===d?'selected':''}>${x}요일</option>`).join('')}</select><input type="time" aria-label="시간" value="${t}"><button class="iconbtn" data-act="rmOpt" aria-label="후보 삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>`;
+  const mon=mondayOf(new Date());const nextMon=addDays(mon,7);const t=today();
   let h=sheetHead('활동 투표 만들기')+`<div class="field"><span>주</span>${radios('pWeek',[[ymd(mon),`이번 주 (${fmtShort(ymd(mon))}~)`],[ymd(nextMon),`다음 주 (${fmtShort(ymd(nextMon))}~)`]],ymd(mon))}</div>
     <label class="field"><span>제목</span><input id="pTitle" maxlength="40" placeholder="비우면 '○/○ 주간 활동 투표'"></label>
-    <div class="field"><span>후보 요일·시간</span><div id="optRows" style="display:flex;flex-direction:column;gap:8px">${defOpts.map(([d,t])=>row(d,t)).join('')}</div></div>
-    <button class="btn block" data-act="addOpt">+ 후보 추가</button>
+    <div class="field"><span>후보 날짜 (누르면 빼거나 넣을 수 있어요)</span><div id="dayChecks" class="daychecks"></div></div>
+    <div class="note">① 날짜를 먼저 투표해요. ② 운영진이 날짜를 확정하면 08:00~22:00를 2시간씩 나눈 7개 시간 투표가 자동으로 열려요. ③ 시간을 확정하면 일정에 자동 등록돼요.</div>
     <button class="btn primary block" data-act="saveSheet">투표 시작</button>`;
   openSheet(h,async()=>{
     const week=rv('pWeek')||ymd(mon);
-    const seen=new Set();const options=[];
-    $('#optRows').querySelectorAll('.optrow').forEach((r,i)=>{const d=Number(r.querySelector('select').value);const t=r.querySelector('input').value;if(!isHm(t))return;const k=d+'_'+t;if(seen.has(k))return;seen.add(k);options.push({id:'o'+Date.now().toString(36)+i,day:d,time:t});});
-    if(options.length<1){toast('후보를 1개 이상 넣으세요');return;}
-    options.sort((a,b)=>a.day-b.day||(a.time<b.time?-1:1));
+    const days=[...document.querySelectorAll('#dayChecks input:checked')].map(x=>Number(x.value)).filter(n=>n>=0&&n<7);
+    if(!days.length){toast('후보 날짜를 하나 이상 고르세요');return;}
     const title=iv('pTitle')||`${fmtShort(week)} 주간 활동 투표`;
     const ref=DB.collection('polls').doc();
-    await write(ref.path,()=>ref.set({title,week,options,createdAt:Date.now(),by:st.myId}));
-    toast('투표를 시작했어요');closeSheet();
+    await write(ref.path,()=>ref.set({title,week,days,stage:'date',date:null,slot:null,eventId:null,createdAt:Date.now(),by:st.myId}));
+    toast('날짜 투표를 시작했어요');closeSheet();
   });
-  sheetRowTpl=()=>row(5,'14:00');
+  fillDays=()=>{const w=parse(rv('pWeek')||ymd(mon));const el=$('#dayChecks');if(!el)return;
+    el.innerHTML=DAYS.map((d,i)=>{const ds=ymd(addDays(w,i));const past=ds<t;return `<label class="dc"><input type="checkbox" value="${i}" ${past?'disabled':'checked'}><span>${d}<small>${fmtShort(ds)}</small></span></label>`;}).join('');};
+  fillDays();
+}
+let fillDays=null;
+function pickSheet(p,kind){
+  const isDate=kind==='date';
+  const r=isDate?tally(p,'p',dayKeys(p)):tally(p,'t',SLOTS);
+  const lab=k=>isDate?dayLabel(p,Number(k.slice(1))):slotLabel(k);
+  let h=sheetHead(isDate?'날짜 확정':'시간 확정')+`<div class="small muted">${isDate?'확정하면 이 날짜로 08~22시 2시간 단위 시간 투표가 열려요.':`${fmtD(p.date)} · 확정하면 일정 탭에 자동으로 등록돼요.`}</div>`;
+  h+=`<div class="pick">${r.res.map(x=>`<label class="pickrow"><input type="radio" name="pk" value="${x.k}" ${r.lead&&x.k===r.lead.k?'checked':''}><span class="grow">${esc(lab(x.k))}</span><span class="num muted">${x.count}표</span></label>`).join('')}</div>`;
+  if(!isDate)h+=`<label class="field"><span>장소 (선택)</span><input id="pkPlace" maxlength="60" placeholder="예: 한양대 풋살장"></label>`;
+  h+=`<button class="btn primary block" data-act="saveSheet">${isDate?'이 날짜로 확정':'이 시간으로 확정'}</button>`;
+  openSheet(h,async()=>{
+    const k=rv('pk');if(!k){toast('하나를 고르세요');return;}
+    const ref=DB.doc('polls/'+p.id);
+    if(isDate){
+      const date=pollDate(p,Number(k.slice(1)));
+      await write(ref.path,()=>ref.update({stage:'time',date,slot:null}));toast('날짜를 확정했어요. 시간 투표가 열렸어요');
+    }else{
+      if(!SLOTS.includes(k))return;
+      const evRef=DB.collection('events').doc();
+      await write(evRef.path,()=>evRef.set({type:'train',title:'정기 활동',date:p.date,time:k+':00',end:pad(Number(k)+2)+':00',place:iv('pkPlace'),opp:'',note:'',createdAt:Date.now(),by:st.myId,poll:p.id}));
+      await write(ref.path,()=>ref.update({stage:'done',slot:k,eventId:evRef.id}));
+      toast('시간을 확정하고 일정에 등록했어요');
+    }
+    closeSheet();
+  });
 }
 let sheetRowTpl=null;
 function clubSheet(){
@@ -1019,17 +1337,32 @@ const A={
     await upsertMine('votes',c=>{c.a=(c.a&&typeof c.a==='object')?c.a:{};if(nv)c.a[d.ev]=nv;else delete c.a[d.ev];c.p=(c.p&&typeof c.p==='object')?c.p:{};return c;});
   },
   vote:async d=>{
-    await upsertMine('votes',c=>{c.p=(c.p&&typeof c.p==='object')?c.p:{};const arr=Array.isArray(c.p[d.poll])?c.p[d.poll].filter(x=>typeof x==='string'):[];const i=arr.indexOf(d.opt);if(i>=0)arr.splice(i,1);else arr.push(d.opt);c.p[d.poll]=arr;c.a=(c.a&&typeof c.a==='object')?c.a:{};return c;});
+    const f=d.field==='t'?'t':'p';
+    await upsertMine('votes',c=>{c[f]=(c[f]&&typeof c[f]==='object')?c[f]:{};const arr=Array.isArray(c[f][d.poll])?c[f][d.poll].filter(x=>typeof x==='string'):[];const i=arr.indexOf(d.opt);if(i>=0)arr.splice(i,1);else arr.push(d.opt);c[f][d.poll]=arr;return c;});
   },
+  pickDate:d=>{const p=st.polls.find(x=>x.id===d.poll);if(p)pickSheet(p,'date');},
+  pickTime:d=>{const p=st.polls.find(x=>x.id===d.poll);if(p)pickSheet(p,'time');},
+  backToDate:(d,btn)=>twoStep(btn,'bd'+d.poll,'한 번 더 누르면 날짜 투표로',async()=>{const r=DB.doc('polls/'+d.poll);await write(r.path,()=>r.update({stage:'date',date:null,slot:null}));}),
+  backToTime:(d,btn)=>twoStep(btn,'bt'+d.poll,'한 번 더 누르면 등록된 일정이 지워져요',async()=>{const p=st.polls.find(x=>x.id===d.poll);if(!p)return;
+    if(p.eventId){const e=DB.doc('events/'+p.eventId);await write(e.path,()=>e.delete()).catch(()=>{});}
+    const r=DB.doc('polls/'+d.poll);await write(r.path,()=>r.update({stage:'time',slot:null,eventId:null}));}),
+  pickSem:d=>{st.sem=d.k;render();},
+  recTab:d=>{st.recTab=d.v==='money'?'money':'act';render();},
+  newAct:()=>activitySheet(null),
+  editAct:d=>{const a=st.activities.find(x=>x.id===d.id);if(a)activitySheet(a);},
+  delAct:(d,btn)=>twoStep(btn,'da'+d.id,'한 번 더 누르면 사진까지 삭제돼요',async()=>{const a=st.activities.find(x=>x.id===d.id);const r=DB.doc('activities/'+d.id);await write(r.path,()=>r.delete());
+    if(a)cleanFiles(a.files).forEach(f=>{const fr=DB.doc('files/'+f.id);write(fr.path,()=>fr.delete()).catch(()=>{});});toast('삭제했어요');closeSheet();}),
+  newLedger:()=>ledgerSheet(null),
+  editLedger:d=>{const l=st.ledger.find(x=>x.id===d.id);if(l)ledgerSheet(l);},
+  delLedger:(d,btn)=>twoStep(btn,'dl'+d.id,'한 번 더 누르면 삭제돼요',async()=>{const l=st.ledger.find(x=>x.id===d.id);const r=DB.doc('ledger/'+d.id);await write(r.path,()=>r.delete());
+    if(l)cleanFiles(l.files).forEach(f=>{const fr=DB.doc('files/'+f.id);write(fr.path,()=>fr.delete()).catch(()=>{});});toast('삭제했어요');closeSheet();}),
+  rmFile:d=>{const i=Number(d.i);const f=sheetFiles[i];if(!f)return;removedFiles.push(f.id);sheetFiles.splice(i,1);const el=$('#fileThumbs');if(el)el.innerHTML=editThumbs();},
+  viewFile:d=>viewFile(d.id),
+  openReport:()=>openReport(),
+  closeReport:()=>{const el=$('#report');if(el){el.hidden=true;el.innerHTML='';}document.body.style.overflow='';},
+  printReport:()=>{try{window.print();}catch(e){toast('인쇄를 열 수 없어요');}},
+  csv:()=>downloadCSV(),
   newPoll:pollSheet,
-  addOpt:()=>{if(sheetRowTpl)$('#optRows').insertAdjacentHTML('beforeend',sheetRowTpl());},
-  rmOpt:(d,btn)=>{const r=btn.closest('.optrow');if(r&&$('#optRows').children.length>1)r.remove();},
-  delPoll:(d,btn)=>twoStep(btn,'dp'+d.poll,'한 번 더 누르면 삭제',async()=>{const ref=DB.doc('polls/'+d.poll);await write(ref.path,()=>ref.delete());toast('투표를 삭제했어요');}),
-  pollToEvent:d=>{
-    const p=st.polls.find(x=>x.id===d.poll);if(!p)return;const r=pollResults(p);if(!r.lead)return;
-    const o=r.lead.o;const date=isYmd(p.week)?ymd(addDays(parse(p.week),Number(o.day)||0)):today();
-    eventSheet(null,{type:'train',title:'정기 활동',date,time:o.time});
-  },
   toggleOld:()=>{st.showOldPolls=!st.showOldPolls;render();},
   newEvent:()=>eventSheet(null),
   editEvent:d=>{const e=st.events.find(x=>x.id===d.ev);if(e)eventSheet(e);},
@@ -1066,6 +1399,11 @@ document.addEventListener('input',ev=>{
 });
 document.addEventListener('change',ev=>{
   if(ev.target.name==='eType'){const f=$('#oppField');if(f)f.hidden=ev.target.value!=='match';}
+  if(ev.target.name==='pWeek'&&fillDays)fillDays();
+  if(ev.target.name==='lKind'){const c=$('#lCat');if(c)c.innerHTML=CATS[ev.target.value==='in'?'in':'out'].map(x=>`<option>${x}</option>`).join('');}
+  if(ev.target.id==='fPick'){const n=ev.target.files.length;const i=$('#fPickInfo');if(i)i.textContent=n?`새 사진 ${n}장 선택됨 · 저장할 때 올라가요`:'';}
+  if(ev.target.id==='aEv'){const e=st.events.find(x=>x.id===ev.target.value);if(e){$('#aDate').value=e.date;$('#aTitle').value=evTitle(e);
+    const n=st.votes.filter(v=>v.a&&v.a[e.id]==='y').length;if(n)$('#aPeople').value=n;if(!$('#aDesc').value)$('#aDesc').value=[isHm(e.time)?e.time+(isHm(e.end)?'–'+e.end:''):'',e.place||'',e.type==='match'&&e.opp?'vs '+e.opp:''].filter(Boolean).join(' · ');}}
 });
 $('#scrim').addEventListener('click',ev=>{if(ev.target.id==='scrim')closeSheet();});
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&$('#scrim').classList.contains('open'))closeSheet();});
@@ -1095,13 +1433,15 @@ function maybeFull(){
   subCol('ratings','ratings',a=>{st.ratings=a;});
   subCol('polls','polls',a=>{st.polls=a;});
   subCol('votes','votes',a=>{st.votes=a;});
+  subCol('ledger','ledger',a=>{st.ledger=a;});
+  subCol('activities','activities',a=>{st.activities=a;});
   subCol('events','events',a=>{st.events=a.map(e=>Object.assign(e,{type:TYPES[e.type]?e.type:'etc'}));});
   subDoc('config/club',s=>{st.club=s&&s.exists?s.data():null;});
   setTimeout(()=>{st.slow=true;scheduleRender();},10000);
 }
 function startUser(u){
   stopAll();
-  Object.assign(st,{myId:u.uid,email:u.email||'',members:[],manual:[],profiles:[],roster:[],ratings:[],polls:[],votes:[],events:[],club:null,
+  Object.assign(st,{myId:u.uid,email:u.email||'',members:[],manual:[],profiles:[],roster:[],ratings:[],polls:[],votes:[],events:[],ledger:[],activities:[],club:null,
     admins:null,adminsLoaded:false,isAdmin:false,isOwner:false,staff:[],loading:{profiles:true,roster:true},slow:false,pool:{}});
   if(pendingProfile){const p=pendingProfile;pendingProfile=null;DB.doc('profiles/'+u.uid).set(Object.assign(p,{at:Date.now()})).catch(e=>toast('가입 정보를 저장하지 못했어요. 내 계정에서 다시 작성해 주세요'));}
   subDoc('config/admins',s=>{

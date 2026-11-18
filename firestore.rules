@@ -66,5 +66,18 @@ service cloud.firestore {
     match /polls/{id} {
       allow read, write: if canUse();
     }
+    // 활동 기록·회계 장부·사진(영수증): 멤버는 보기만, 동아리장·운영진만 올리고 고칠 수 있어요.
+    match /activities/{id} {
+      allow read: if canUse();
+      allow write: if isStaff();
+    }
+    match /ledger/{id} {
+      allow read: if canUse();
+      allow write: if isStaff();
+    }
+    match /files/{id} {
+      allow read: if canUse();
+      allow write: if isStaff();
+    }
   }
 }
