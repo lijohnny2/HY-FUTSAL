@@ -1,5 +1,5 @@
 // 앱 화면을 기기에 저장해 두는 서비스 워커 (데이터는 항상 Firebase에서 새로 받아요)
-const CACHE = 'hyfutsal-v2';
+const CACHE = 'hyfutsal-v4';
 const SHELL = ['./', './index.html', './config.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 
