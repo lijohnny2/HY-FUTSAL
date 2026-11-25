@@ -56,6 +56,11 @@ service cloud.firestore {
       allow read: if canUse();
       allow write: if signedIn() && uid == me() && canUse();
     }
+    // 경기별 평점: 각자 자기 문서에만 씀
+    match /matchRatings/{uid} {
+      allow read: if canUse();
+      allow write: if signedIn() && uid == me() && canUse();
+    }
     match /votes/{uid} {
       allow read: if canUse();
       allow write: if signedIn() && uid == me() && canUse();
