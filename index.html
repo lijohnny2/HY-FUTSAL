@@ -738,7 +738,7 @@ function gameRow(e){
 function gamesCard(){
   const list=gamesWithPlayers();const staff=canAdmin();
   let h=`<div class="card"><h2><span class="t">경기 평점</span>${staff?`<button class="btn sm primary" data-act="pickGame">+ 출전 선수 등록</button>`:''}</h2>`;
-  if(!list.length)h+=`<div class="empty">아직 평점을 매길 경기가 없어요.${staff?'<br>경기가 끝나면 '출전 선수 등록'에서 그 경기에 나간 사람을 골라 주세요.':' 운영진이 출전 선수를 등록하면 평가할 수 있어요.'}</div>`;
+  if(!list.length)h+=`<div class="empty">아직 평점을 매길 경기가 없어요.${staff?'<br>경기가 끝나면 “출전 선수 등록”에서 그 경기에 나간 사람을 골라 주세요.':' 운영진이 출전 선수를 등록하면 평가할 수 있어요.'}</div>`;
   else{
     const show=st.showAllGames?list:list.slice(0,4);
     h+=`<div class="mlist">${show.map(gameRow).join('')}</div>`;
